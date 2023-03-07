@@ -1,3 +1,0 @@
-service_id, date, exception_type
-M1, 20230529, 2
-M3, 20230529, 1

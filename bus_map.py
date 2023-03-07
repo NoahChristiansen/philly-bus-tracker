@@ -5,10 +5,12 @@ import folium
 from folium.plugins import MarkerCluster, FastMarkerCluster
 import datetime
 
-from google.transit import gtfs_realtime_pb2
+# from google.transit import gtfs_realtime_pb2
+# from google.protobuf.json_format import MessageToDict
 import requests
 import pandas as pd
 import os
+import shutil
 from zipfile import ZipFile
 import sys
 import json
@@ -16,7 +18,6 @@ import json
 import psycopg2
 from matplotlib import cm
 from matplotlib.colors import rgb2hex
-from google.protobuf.json_format import MessageToDict
 
 from shapely.geometry import Point, LineString, MultiLineString
 from shapely import ops
@@ -296,6 +297,9 @@ def check_static_updates():
         create_gtfs_database()
         get_bus_lines()
         create_route_color_json()
+        
+        shutil.rmtree('./google_bus/')
+        shutil.rmtree('./google_rail/')
     else:
         print("Static data is up-to-date.")
 

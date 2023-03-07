@@ -7,11 +7,11 @@ import datetime as dt
 
 from bus_map import (
     check_static_updates,
-    transitview_to_df,
+    # transitview_to_df,
     get_bus_positions_from_transitview,
     # feed_to_dict,
     get_lines_json,
-    get_bus_lines,
+    # get_bus_lines,
     #  get_bus_positions,
     colors)
 
@@ -38,7 +38,7 @@ lines_style = assign("""function (feature, context) {
 
 app = Dash(__name__, prevent_initial_callbacks=True)
 
-application = app.server
+server = app.server
 # app.scripts.config.serve_locally = True
 
 app.layout = html.Div(children = [
@@ -160,4 +160,4 @@ def update_bus_interval(
 
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(host = "0.0.0.0", port = 8050)
