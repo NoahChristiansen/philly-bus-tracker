@@ -1,11 +1,11 @@
 from dash import Dash, html, Output, Input, dcc
 import json
 import dash_leaflet as dl
-import dash_leaflet.express as dlx
+# import dash_leaflet.express as dlx
 from dash_extensions.javascript import assign, arrow_function
 import datetime as dt
 
-from bus_map import (
+from gtfs_tools import (
     check_static_updates,
     # transitview_to_df,
     get_bus_positions_from_transitview,
